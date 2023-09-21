@@ -1,0 +1,33 @@
+# Dependencias de npm
+/node_modules
+
+# Directorio de caché de npm (si usas npm 5+)
+.npm
+
+# Archivos generados durante la construcción o ejecución de la aplicación
+/build
+/dist
+
+# Archivos de registro y errores
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log*
+
+# Archivos de configuración locales (ajusta esto según tus necesidades)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# macOS
+.DS_Store
+
+# Editor/IDE específico (ajusta esto según tu editor)
+.vscode/
+.idea/
+
+# Otros archivos generados o temporales
+*.log
+*.pid
+*.lock
