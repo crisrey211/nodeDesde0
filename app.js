@@ -1,11 +1,24 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+console.clear;
+import express from 'express';
 
-app.get('/', (req, res) => {
-  res.send('¡Hola, mundo!');
-});
+const PORT  = 3000;
+const expressApp = express()
 
-app.listen(port, () => {
-  console.log(`Servidor Express escuchando en el puerto ${port}`);
-});
+//Middelware sirven para recibir el body
+expressApp.use(express.json())
+expressApp.use(express.text())
+
+
+expressApp.post('/cuenta', (req, res) => {
+    console.log(req.query)
+    /* res.status(400).send({
+        errroMessage: "NO autorizado"
+    }) */
+    res.send("tu cuenta personal")
+})
+
+expressApp.listen(PORT, () => { 
+    console.log(`Escuchando en el puerto ${PORT} `)
+})
+
+
