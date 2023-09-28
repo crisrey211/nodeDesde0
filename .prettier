@@ -1,7 +1,0 @@
-{
-  "semi": true,               // Agrega punto y coma al final de las declaraciones
-  "singleQuote": true,        // Utiliza comillas simples en lugar de comillas dobles
-  "trailingComma": "all",     // Agrega una coma al final de las listas y objetos
-  "printWidth": 80,           // Ancho máximo de línea antes de envolver
-  "tabWidth": 2               // Tamaño de la sangría con tabulaciones
-}
