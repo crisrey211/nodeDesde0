@@ -4,13 +4,13 @@ import dotenv from "dotenv"
 import accountRouter from './routes/account.js'
 
 dotenv.config()
-const PORT  = 3000;
+const PORT  =  process.env.PORT || 3000;
 const expressApp = express()
 
 //Middelware sirven para recibir el body
 expressApp.use(express.json())
 expressApp.use(express.text())
-expressApp.use(accountRouter)
+expressApp.use("/account",accountRouter)
 
 
 

@@ -4,8 +4,14 @@ import { USER_BBDD } from '../bbdd.js'
 const accountRouter = express.Router()
 
 
+accountRouter.use((req, res,next) => {
+    console.log(req.ip);
+    next()
+})
+
+
 //Obtener los detalles de la cuenta a partir de la cuenta a partir del guid
-accountRouter.get('/account/:guid', (req, res) => { 
+accountRouter.get('/:guid', (req, res) => { 
     const { guid } = req.params
     
     const user = USER_BBDD.find(user => user.guid === guid)
@@ -15,7 +21,7 @@ accountRouter.get('/account/:guid', (req, res) => {
 })
 
 //Crear una cuenta
-accountRouter.post('/account', (req, res) => {
+accountRouter.post('/', (req, res) => {
     const { guid, name } = req.body
     if (!guid || !name) res.status(400).send("No se ha podido crear cuenta")
     const user = USER_BBDD.find(user => user.guid === guid)
@@ -28,7 +34,7 @@ accountRouter.post('/account', (req, res) => {
 })
 
 //Actualizar una cuenta
-accountRouter.patch('/account/:guid', (req, res) => {
+accountRouter.patch('/:guid', (req, res) => {
     const { guid , name} = req.body
     const user = USER_BBDD.find(user => user.guid === guid)
     if (!user) res.status(400).send("No se ha podido actualizar cuenta")
@@ -37,7 +43,7 @@ accountRouter.patch('/account/:guid', (req, res) => {
 })
 
 //Eliminar una cuenta
-accountRouter.delete('/account/:guid', (req, res) => {
+accountRouter.delete('/:guid', (req, res) => {
     const { guid } = req.params
     const userIndex = USER_BBDD.findIndex(user => user.guid === guid)
 
