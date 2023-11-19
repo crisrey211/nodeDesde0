@@ -9,7 +9,6 @@ const authSessionRouter = Router();
 authSessionRouter.post('/login', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) return res.status(400).send('Error en el servidor');
-
   try {
     const user = authByEmailPwd(email, password);
 
@@ -18,8 +17,8 @@ authSessionRouter.post('/login', (req, res) => {
     const sessionId = nanoid();
     sessions.push({ sessionId });
 
-    res.cookie('sessionId', sessionId, { httpOnly });
-    res.send(`Usuario ${user.name} autenticado`);
+    res.cookie('sessionId', sessionId, { httpOnly: true });
+    return res.send();
   } catch (error) {
     return res.sendStatus(401);
   }

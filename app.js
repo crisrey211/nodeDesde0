@@ -20,8 +20,8 @@ expressApp.use('/account', accountRouter);
 
 expressApp.use('/auth', authRouter);
 
-expressApp.use('/auth_token', authTokenRouter);
-expressApp.use('/auth_session', authSessionRouter);
+expressApp.use('/auth-token', authTokenRouter);
+expressApp.use('/auth-session', authSessionRouter);
 
 expressApp.listen(PORT, () => {
   console.log(`Escuchando en el puerto ${PORT} `);
