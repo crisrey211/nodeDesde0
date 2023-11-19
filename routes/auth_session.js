@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import { nanoid } from 'nanoid';
-import authByEmailPwd from '../helpers/check-email-password';
+import authByEmailPwd from '../helpers/check-email-password.js';
 
 const sessions = [];
-const authSessionRouterRouter = Router();
+const authSessionRouter = Router();
 
 //Login con email y password
-authTokenRouter.post('/login', (req, res) => {
+authSessionRouter.post('/login', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) return res.status(400).send('Error en el servidor');
 
